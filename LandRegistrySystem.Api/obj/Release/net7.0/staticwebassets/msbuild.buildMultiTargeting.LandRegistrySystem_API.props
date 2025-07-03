@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LandRegistrySystem_API.props" />
+</Project>

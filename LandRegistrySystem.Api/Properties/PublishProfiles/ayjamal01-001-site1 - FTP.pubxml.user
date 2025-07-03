@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftp://win1054.site4now.net:21/site1</_PublishTargetUrl>
+    <History>True|2025-07-03T20:02:38.4044447Z;True|2025-07-03T21:43:38.7652412+02:00;True|2025-07-03T15:28:27.6799131+02:00;True|2025-07-02T20:57:13.2853121+02:00;True|2025-07-02T20:42:30.2059250+02:00;True|2025-07-02T19:51:31.0831597+02:00;True|2025-07-02T19:45:10.8181643+02:00;True|2025-07-02T19:29:27.4597903+02:00;True|2025-07-02T19:19:49.5730201+02:00;True|2025-07-02T19:12:01.6934516+02:00;True|2025-07-02T19:06:34.8682396+02:00;True|2025-07-02T18:09:06.8067175+02:00;True|2025-07-02T17:37:36.4309018+02:00;True|2025-07-02T16:23:57.2593600+02:00;False|2025-07-02T16:22:25.6541532+02:00;False|2025-07-02T16:22:05.6021953+02:00;True|2025-07-02T15:52:41.8379962+02:00;True|2025-07-02T15:01:23.6599089+02:00;True|2025-07-02T03:15:57.0777526+02:00;True|2025-07-02T02:45:02.7872441+02:00;True|2025-07-02T00:09:51.6013575+02:00;True|2025-07-01T22:37:32.4938459+02:00;True|2025-07-01T22:30:14.1672895+02:00;True|2025-07-01T22:07:25.3638846+02:00;True|2025-06-29T18:39:43.2964046+02:00;True|2025-06-29T14:55:55.0594421+02:00;True|2025-06-28T22:48:52.9537009+02:00;True|2025-06-22T22:32:28.1497462+02:00;True|2025-06-22T14:05:10.7839928+02:00;True|2025-06-15T23:45:40.5045559+02:00;True|2025-06-15T23:37:56.5960372+02:00;True|2025-06-13T23:06:05.5463316+02:00;False|2025-06-13T23:00:09.2390751+02:00;True|2025-06-13T20:43:41.4406042+02:00;True|2025-06-13T16:30:54.6755454+02:00;True|2025-06-08T18:27:28.6252267+02:00;True|2025-06-08T18:02:22.5724910+02:00;True|2025-06-08T17:33:27.2899231+02:00;True|2025-06-08T17:25:30.5312297+02:00;True|2025-06-08T17:16:12.0074856+02:00;True|2025-06-08T15:31:49.5012922+02:00;True|2025-06-08T15:17:37.3615994+02:00;True|2025-06-08T14:39:28.0468892+02:00;True|2025-06-08T00:47:07.1180969+02:00;True|2025-06-05T23:19:39.2898069+02:00;True|2025-06-05T20:19:49.7493936+02:00;False|2025-06-05T20:17:24.3873326+02:00;False|2025-06-05T17:55:41.3070454+02:00;False|2025-06-05T17:54:01.2401710+02:00;True|2025-06-05T16:29:35.7154073+02:00;False|2025-06-05T16:28:33.3358541+02:00;False|2025-06-05T15:17:37.6941866+02:00;True|2025-06-05T13:08:05.9965299+02:00;False|2025-06-04T23:05:12.9675483+02:00;False|2025-06-04T19:45:27.8072539+02:00;False|2025-06-04T19:44:33.0517228+02:00;True|2025-06-02T00:56:25.5085909+02:00;True|2025-05-29T01:40:39.9818271+02:00;False|2025-05-29T01:38:33.8869705+02:00;True|2025-05-26T12:49:24.9543799+02:00;True|2025-05-22T00:47:54.4733527+02:00;True|2025-05-17T17:15:04.5460469+02:00;True|2025-05-17T03:21:52.8255699+02:00;False|2025-05-17T03:19:56.8021373+02:00;True|2025-05-17T03:15:25.9657805+02:00;False|2025-05-17T03:13:49.1333656+02:00;False|2025-05-17T03:11:31.1355194+02:00;False|2025-05-17T03:10:29.8171291+02:00;False|2025-05-17T03:08:26.0557707+02:00;True|2025-05-17T02:09:52.4717436+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>05/16/2025 23:30:11</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>07/03/2025 15:33:19</publishTime>
+    </File>
+    <File Include="Azure.Core.dll">
+      <publishTime>09/07/2023 19:50:30</publishTime>
+    </File>
+    <File Include="Azure.Identity.dll">
+      <publishTime>10/18/2023 21:59:42</publishTime>
+    </File>
+    <File Include="BarcodeStandard.dll">
+      <publishTime>03/11/2025 04:12:00</publishTime>
+    </File>
+    <File Include="ESCPOS_NET.dll">
+      <publishTime>08/18/2022 02:54:40</publishTime>
+    </File>
+    <File Include="FluentValidation.AspNetCore.dll">
+      <publishTime>07/14/2020 18:46:02</publishTime>
+    </File>
+    <File Include="FluentValidation.DependencyInjectionExtensions.dll">
+      <publishTime>07/14/2020 18:46:02</publishTime>
+    </File>
+    <File Include="FluentValidation.dll">
+      <publishTime>07/14/2020 18:46:00</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_API.deps.json">
+      <publishTime>07/03/2025 21:48:56</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_API.dll">
+      <publishTime>07/03/2025 21:48:45</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_API.exe">
+      <publishTime>07/03/2025 21:48:45</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_API.pdb">
+      <publishTime>07/03/2025 21:48:45</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_API.runtimeconfig.json">
+      <publishTime>07/02/2025 23:14:23</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_Domain.dll">
+      <publishTime>07/03/2025 15:26:00</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_Domain.pdb">
+      <publishTime>07/03/2025 15:26:00</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_Infrastructure.dll">
+      <publishTime>07/03/2025 15:26:02</publishTime>
+    </File>
+    <File Include="LandRegistrySystem_Infrastructure.pdb">
+      <publishTime>07/03/2025 15:26:02</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Black.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-BlackItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Bold.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-BoldItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraBold.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraBoldItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraLight.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraLightItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Italic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Light.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-LightItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Medium.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-MediumItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Regular.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-SemiBold.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-SemiBoldItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Thin.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ThinItalic.ttf">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="LatoFont/OFL.txt">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
+      <publishTime>05/20/2024 06:12:02</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.OpenApi.dll">
+      <publishTime>08/25/2023 17:30:32</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/15/2020 00:39:12</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.dll">
+      <publishTime>01/27/2024 04:49:44</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>05/20/2024 01:48:56</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>05/20/2024 01:49:12</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>05/20/2024 01:49:22</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>05/20/2024 01:49:30</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.dll">
+      <publishTime>09/05/2023 20:25:28</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.Extensions.Msal.dll">
+      <publishTime>09/05/2023 20:31:58</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Abstractions.dll">
+      <publishTime>12/01/2023 06:56:56</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>12/01/2023 06:34:00</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>12/01/2023 06:35:22</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>12/01/2023 06:37:28</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>12/01/2023 06:48:08</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>12/01/2023 06:41:50</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>09/26/2022 14:32:38</publishTime>
+    </File>
+    <File Include="Microsoft.SqlServer.Server.dll">
+      <publishTime>01/27/2022 19:19:08</publishTime>
+    </File>
+    <File Include="Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/23/2021 01:40:24</publishTime>
+    </File>
+    <File Include="QuestPDF.dll">
+      <publishTime>06/06/2025 01:32:14</publishTime>
+    </File>
+    <File Include="runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll">
+      <publishTime>10/31/2023 17:00:26</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm/native/libSkiaSharp.so">
+      <publishTime>04/09/2024 18:58:02</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm/native/libSystem.IO.Ports.Native.so">
+      <publishTime>10/23/2021 01:43:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libcrypto.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libjpeg.so.8">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libqpdf.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libQuestPdfSkia.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libSkiaSharp.so">
+      <publishTime>04/09/2024 18:58:12</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so">
+      <publishTime>10/23/2021 01:44:08</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libcrypto.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libjpeg.so.8">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libqpdf.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libQuestPdfSkia.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libSkiaSharp.so">
+      <publishTime>04/09/2024 18:58:02</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libcrypto.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libjpeg.so.8">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libqpdf.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libQuestPdfSkia.so">
+      <publishTime>06/06/2025 01:25:44</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libSkiaSharp.so">
+      <publishTime>04/09/2024 18:58:02</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libSystem.IO.Ports.Native.so">
+      <publishTime>10/23/2021 01:43:42</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libcrypto.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libjpeg.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libqpdf.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libQuestPdfSkia.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib">
+      <publishTime>10/23/2021 01:31:26</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libcrypto.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libjpeg.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libqpdf.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libQuestPdfSkia.dylib">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib">
+      <publishTime>10/23/2021 01:30:58</publishTime>
+    </File>
+    <File Include="runtimes/osx/native/libSkiaSharp.dylib">
+      <publishTime>04/25/2025 13:39:00</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>01/27/2024 04:49:42</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/23/2021 01:51:42</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/System.IO.Ports.dll">
+      <publishTime>10/23/2021 01:49:28</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/11/2023 20:56:28</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/libSkiaSharp.dll">
+      <publishTime>04/25/2025 20:37:16</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/11/2023 20:56:28</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libgcc_s_seh-1.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libSkiaSharp.dll">
+      <publishTime>04/25/2025 20:37:18</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libstdc++-6.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libwinpthread-1.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/11/2023 20:56:18</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/qpdf.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/QuestPdfSkia.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libgcc_s_dw2-1.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libSkiaSharp.dll">
+      <publishTime>04/25/2025 20:37:16</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libstdc++-6.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libwinpthread-1.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/11/2023 20:56:18</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/qpdf.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/QuestPdfSkia.dll">
+      <publishTime>06/06/2025 01:25:46</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>01/27/2024 04:49:42</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/23/2021 01:40:18</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/23/2021 01:48:10</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.IO.Ports.dll">
+      <publishTime>10/23/2021 01:48:24</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Runtime.Caching.dll">
+      <publishTime>10/23/2021 01:52:44</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/23/2021 01:51:04</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Windows.Extensions.dll">
+      <publishTime>10/23/2021 01:49:58</publishTime>
+    </File>
+    <File Include="SimpleTcp.dll">
+      <publishTime>03/10/2021 01:59:40</publishTime>
+    </File>
+    <File Include="SixLabors.ImageSharp.dll">
+      <publishTime>06/18/2022 02:35:24</publishTime>
+    </File>
+    <File Include="SkiaSharp.dll">
+      <publishTime>04/25/2025 20:37:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>01/11/2023 08:48:22</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>01/11/2023 08:48:26</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>01/11/2023 08:49:02</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>08/19/2022 21:58:02</publishTime>
+    </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>10/23/2021 01:49:12</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>12/01/2023 06:31:48</publishTime>
+    </File>
+    <File Include="System.IO.Ports.dll">
+      <publishTime>10/23/2021 01:48:24</publishTime>
+    </File>
+    <File Include="System.Memory.Data.dll">
+      <publishTime>04/08/2021 18:45:54</publishTime>
+    </File>
+    <File Include="System.Resources.Extensions.dll">
+      <publishTime>10/31/2023 17:10:20</publishTime>
+    </File>
+    <File Include="System.Runtime.Caching.dll">
+      <publishTime>10/23/2021 01:52:02</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/23/2021 01:51:04</publishTime>
+    </File>
+    <File Include="System.Security.Permissions.dll">
+      <publishTime>10/23/2021 01:49:50</publishTime>
+    </File>
+    <File Include="System.Text.Encodings.Web.dll">
+      <publishTime>10/31/2023 17:00:24</publishTime>
+    </File>
+    <File Include="System.Text.Json.dll">
+      <publishTime>09/17/2024 01:14:00</publishTime>
+    </File>
+    <File Include="System.Windows.Extensions.dll">
+      <publishTime>10/23/2021 01:49:44</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>07/03/2025 21:48:56</publishTime>
+    </File>
+    <File Include="zxing.dll">
+      <publishTime>01/26/2025 20:43:46</publishTime>
+    </File>
+    <File Include="ZXing.SkiaSharp.dll">
+      <publishTime>01/26/2025 22:04:42</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

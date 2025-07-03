@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "I4FEruaRuw4XlYe5vrFuheoa5VXdxG2lWYH66wxk1Ko=",
+  "Source": "LandRegistrySystem_API",
+  "BasePath": "_content/LandRegistrySystem_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LandRegistrySystem_API\\wwwroot",
+      "Source": "LandRegistrySystem_API",
+      "ContentRoot": "C:\\Users\\hp\\Documents\\projects\\LandRegistrySystem\\LandRegistrySystem.Api\\wwwroot\\",
+      "BasePath": "_content/LandRegistrySystem_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
