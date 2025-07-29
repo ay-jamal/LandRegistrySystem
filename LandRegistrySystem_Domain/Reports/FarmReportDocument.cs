@@ -24,9 +24,13 @@ namespace LandRegistrySystem_Domain.Reports
                 page.DefaultTextStyle(x => x.FontSize(12).FontFamily("Arial").DirectionFromRightToLeft());
 
 
-                // Header
-                page.Header().Column(col =>
+                page.Header().PaddingBottom(15).Column(col =>
                 {
+                    col.Spacing(10);
+                    if (Organization?.Logo != null && Organization.Logo.Length > 0)
+                    {
+                        col.Item().AlignCenter().Height(100).Width(100).Image(Organization.Logo);
+                    }
                     col.Item().Text(Organization?.Name ?? "اسم المؤسسة غير متوفر").Bold().FontSize(20).AlignCenter();
                     col.Item().Text("تقرير بيانات المزرعة").Bold().FontSize(16).AlignCenter();
                     col.Item().Text($"تاريخ التقرير: {DateTime.Now:yyyy/MM/dd HH:mm}")
@@ -34,17 +38,16 @@ namespace LandRegistrySystem_Domain.Reports
                 });
 
                 // Content
-                page.Content().AlignMiddle().Column(column =>
+                page.Content().AlignTop().Column(column =>
                 {
                     column.Spacing(5);
 
-                    // Farm Info Table with reversed columns and alignment
                     column.Item().Table(table =>
                     {
                         table.ColumnsDefinition(columns =>
                         {
-                            columns.RelativeColumn(2); // Value - left side
-                            columns.RelativeColumn(1); // Label - right side
+                            columns.RelativeColumn(2); 
+                            columns.RelativeColumn(1); 
                         });
 
                         void AddRow(string label, string value)
@@ -66,7 +69,6 @@ namespace LandRegistrySystem_Domain.Reports
                             container.PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Grey.Lighten2);
                     });
 
-                    // Documents Table with reversed columns and alignment
                     column.Item().Text(":الملفات المرتبطة").Bold().AlignRight().FontSize(14);
                     column.Item().Table(table =>
                     {

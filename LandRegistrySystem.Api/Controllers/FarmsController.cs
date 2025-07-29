@@ -115,6 +115,7 @@ namespace LandRegistrySystem_API.Controllers
                 return File(data.ToArray(), "image/png", $"farm_{farmId}_barcode.png");
             }
         }
+
         [Authorize(Roles = "1,2,3")]
 
         [HttpGet("generate/{farmId}/qr")]
@@ -134,8 +135,7 @@ namespace LandRegistrySystem_API.Controllers
             return Ok(barcodeContent);
         }
 
-/*        [Authorize(Roles = "1,2,3")]
-*/
+        [Authorize(Roles = "1,2,3")]
         [HttpGet("{farmId}/report")]
         public async Task<IActionResult> GenerateFarmReport(int farmId)
         {
