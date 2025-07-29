@@ -18,11 +18,15 @@ namespace LandRegistrySystem_Domain.Entities
         public List<Farm> Farms { get; set; } = new();
         public int CityId { get; set; }
         public City City { get; set; }
-        public void Update(ProjectUpdateRequest project)
+        public DateTime UpdatedAt { get; set; }
+        public string UpdatedByUserName { get; set; }
+        public void Update(ProjectUpdateRequest project, string userName)
         {
             Name = project.Name;
             ProjectNumber = project.ProjectNumber;
             CityId = project.CityId;
+            UpdatedAt = DateTime.Now;
+            UpdatedByUserName = userName;
         }
 
     } 

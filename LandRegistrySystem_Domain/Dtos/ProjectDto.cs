@@ -20,5 +20,9 @@ namespace LandRegistrySystem_Domain.Dtos
 
         public DateTime CreatedAt { get; set; }
 
+        public DateTime? UpdatedAt { get; set; }
+
+        public string UpdatedByUser { get; set; }
+
     }
 }

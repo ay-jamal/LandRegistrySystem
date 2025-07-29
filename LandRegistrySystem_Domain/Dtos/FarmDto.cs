@@ -23,6 +23,9 @@ namespace LandRegistrySystem_Domain.Dtos
         public OwnerDto Owner { get; set; }
 
         public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+
+        public string UpdatedByUser { get; set; }
 
     }
 }

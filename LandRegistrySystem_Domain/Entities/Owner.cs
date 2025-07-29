@@ -17,8 +17,9 @@ namespace LandRegistrySystem_Domain.Entities
         public List<Farm> Farms { get; set; } = new();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public bool IsProtected { get; set; } // 👈 خاصية حماية المالك الافتراضي
-
-        public void Update(UpdateOwnerRequest owner)
+        public DateTime UpdatedAt { get; set; }
+        public string UpdatedByUserName { get; set; }
+        public void Update(UpdateOwnerRequest owner, string userName)
         {
             // لا تسمح بتعديل المالك الافتراضي
             if (!IsProtected)
@@ -26,6 +27,9 @@ namespace LandRegistrySystem_Domain.Entities
                 FullName = owner.FullName;
                 NationalId = owner.NationalId;
                 PhoneNumber = owner.PhoneNumber;
+                UpdatedAt = DateTime.Now;
+                UpdatedByUserName = userName;
+
             }
             // ممكن ترجع رسالة أو ترمي استثناء إذا حاول أحد التعديل!
         }

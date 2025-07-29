@@ -87,12 +87,29 @@ namespace LandRegistrySystem_Infrastructure.Context
             {
                 var owner = new Owner
                 {
-                    Id = defaultOwnerId, 
                     FullName = "المالك الافتراضي",
                     IsProtected = true,
                 };
                 context.Owners.Add(owner);
                 await context.SaveChangesAsync();
+            }
+        }
+
+        public static async Task SeedOrganizationInfo(AppDbContext context)
+        {
+            if (!context.OrganizationInfo.Any())
+            {
+                var org = new OrganizationInfo
+                {
+                    Name = "وزارة الزراعة سرت",
+                    Phone = "123456789",
+                    Email = "info@moa-sirte.ly",
+                    Address = "سرت، ليبيا",
+                    Logo = null
+                };
+
+                context.OrganizationInfo.Add(org);
+               await context.SaveChangesAsync();
             }
         }
 

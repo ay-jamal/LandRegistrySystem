@@ -134,8 +134,8 @@ namespace LandRegistrySystem_API.Controllers
             return Ok(barcodeContent);
         }
 
-        [Authorize(Roles = "1,2,3")]
-
+/*        [Authorize(Roles = "1,2,3")]
+*/
         [HttpGet("{farmId}/report")]
         public async Task<IActionResult> GenerateFarmReport(int farmId)
         {
@@ -148,14 +148,19 @@ namespace LandRegistrySystem_API.Controllers
             if (farm == null)
                 return NotFound("المزرعة غير موجودة.");
 
+
             var documents = await _dbContext.FarmDocuments
                 .Where(d => d.FarmId == farmId)
                 .ToListAsync();
 
+            var organization = await _dbContext.OrganizationInfo.FirstOrDefaultAsync();
+
             var report = new FarmReportDocument
             {
                 Farm = farm,
-                Documents = documents
+                Documents = documents,
+               Organization = organization
+
             };
 
             var pdfBytes = report.GeneratePdf();
@@ -276,9 +281,10 @@ namespace LandRegistrySystem_API.Controllers
             if (owner == null)
                 return BadRequest(new { Message = "المالك غير موجود." });
 
+            var userName = User?.Identity?.Name ?? "Unknown";
 
             // تنفيذ التحديث
-            farm.Update(request);
+            farm.Update(request, userName);
 
             await _farmRepository.SaveChanges();
 

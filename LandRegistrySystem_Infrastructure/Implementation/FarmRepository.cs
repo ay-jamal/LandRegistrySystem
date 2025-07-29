@@ -64,6 +64,8 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 CityId = f.Project.City.Id,
                 ProjectName = f.Project.Name,
                 CityName = f.Project.City.Name,
+                UpdatedAt = f.UpdatedAt,
+                UpdatedByUser = f.UpdatedByUserName,
                 Boundaries = new BoundaryDto
                 {
                     North = f.Boundaries.North,

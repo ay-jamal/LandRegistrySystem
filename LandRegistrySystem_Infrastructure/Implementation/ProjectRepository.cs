@@ -50,6 +50,8 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 ProjectNumber = p.ProjectNumber,
                 FarmsCount = p.Farms.Count(),
                 CreatedAt = p.CreatedAt,
+                UpdatedAt = p.UpdatedAt,
+                UpdatedByUser = p.UpdatedByUserName,
                 OwnersCount = p.Farms
                     .Select(f => f.OwnerId)
                     .Distinct()

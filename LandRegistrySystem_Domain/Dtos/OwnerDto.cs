@@ -16,7 +16,9 @@ namespace LandRegistrySystem_Domain.Dtos
         public int FarmsCount { get; set; }         // عدد المزارع المملوكة
 
         public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
+        public string UpdatedByUser { get; set; }
 
     }
 }

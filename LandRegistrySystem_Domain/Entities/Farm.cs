@@ -17,19 +17,22 @@ namespace LandRegistrySystem_Domain.Entities
         public FarmBoundaries Boundaries { get; set; } 
 
         public int ProjectId { get; set; }
-        public Project Project { get; set; }
+        public Project Project { get; set; } 
 
         public int OwnerId { get; set; }
         public Owner Owner { get; set; }
         public ICollection<FarmDocument> Documents { get; set; } = new List<FarmDocument>();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdatedAt { get; set; }  // nullable لأن ممكن ما يتحدثش من البداية
+        public string UpdatedByUserName { get; set; }
 
-        public void Update(UpdateFarmRequest dto)
+        public void Update(UpdateFarmRequest dto, string updatedBy)
         {
             Area = dto.Area;
             ProjectId = dto.ProjectId;
             OwnerId = dto.OwnerId;
             FarmNumber = dto.FarmNumber;
+            UpdatedAt = DateTime.Now;
 
             if (Boundaries != null)
             {

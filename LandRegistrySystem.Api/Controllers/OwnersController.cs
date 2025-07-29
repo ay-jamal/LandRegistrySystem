@@ -85,10 +85,14 @@ namespace LandRegistrySystem_API.Controllers
             if (owner.IsProtected)
                 return BadRequest(new { Message = "لا يمكن تعديل بيانات المالك الافتراضي." });
 
-            owner.Update(request);
+            var userName = User?.Identity?.Name ?? "Unknown";
+
+            owner.Update(request, userName);
             await _ownerRepository.SaveChanges();
 
+            Console.Write(User);
             return NoContent();
+
         }
 
         [Authorize(Roles = "1,2")]

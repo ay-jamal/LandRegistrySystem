@@ -18,6 +18,9 @@ namespace LandRegistrySystem_Domain.Entities
         public string FilePath { get; set; } = string.Empty;
 
         public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }  // nullable لأن ممكن ما يتحدثش من البداية
+        public string UpdatedByUserName { get; set; }
+
 
     }
 }

@@ -43,6 +43,9 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 PhoneNumber = o.PhoneNumber,
                 FarmsCount = o.Farms.Count,
                 CreatedAt = o.CreatedAt,
+                UpdatedAt = o.UpdatedAt,
+                UpdatedByUser = o.UpdatedByUserName
+                
             });
 
             if (paginationRequest.SkipPaged)

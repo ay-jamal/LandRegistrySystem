@@ -113,6 +113,9 @@ using (var scope = app.Services.CreateScope())
     // Ensure Super Admin User Exists
     await AppDbContext.EnsureSuperAdminCreated(context, services.GetRequiredService<IAuthRepository>());
 
+    await AppDbContext.SeedDefaultOwner(context);
+    await AppDbContext.SeedOrganizationInfo(context);
+
 
 }
 
@@ -130,6 +133,7 @@ app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

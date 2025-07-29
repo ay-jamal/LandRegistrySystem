@@ -100,7 +100,9 @@ namespace LandRegistrySystem_API.Controllers
             if (project == null)
                 return NotFound();
 
-            project.Update(request);
+            var userName = User?.Identity?.Name ?? "Unknown";
+
+            project.Update(request, userName);
             await _projectRepository.SaveChanges();
 
             return NoContent();

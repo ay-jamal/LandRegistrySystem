@@ -1,5 +1,8 @@
-﻿using LandRegistrySystem_Domain.Entities;
+﻿using LandRegistrySystem_Domain.Dtos;
+using LandRegistrySystem_Domain.Entities;
+using LandRegistrySystem_Domain.Requests;
 using LandRegistrySystem_Infrastructure.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace LandRegistrySystem_API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Roles = "1")]
     [ApiController]
     public class OrganizationInfoController : ControllerBase
     {
@@ -19,67 +23,50 @@ namespace LandRegistrySystem_API.Controllers
 
         // GET: api/OrganizationInfo
         [HttpGet]
-        public async Task<ActionResult<OrganizationInfo>> GetOrganizationInfo()
+        public async Task<ActionResult<OrganizationInfoDto>> GetOrganizationInfo()
         {
             var org = await _db.OrganizationInfo.FirstOrDefaultAsync();
             if (org == null)
                 return NotFound();
 
-            // نخفي الشعار هنا حتى لا يسبب بطء في API (أو يمكن إرجاعه حسب رغبتك)
-            org.Logo = null;
-            return org;
+            var dto = new OrganizationInfoDto
+            {
+                Id = org.Id,
+                Name = org.Name,
+                Phone = org.Phone,
+                Email = org.Email,
+                Address = org.Address,
+                Logo = org.Logo 
+            };
+
+            return Ok(dto);
         }
 
-        // GET: api/OrganizationInfo/logo
-        [HttpGet("logo")]
-        public async Task<IActionResult> GetLogo()
-        {
-            var org = await _db.OrganizationInfo.FirstOrDefaultAsync();
-            if (org == null || org.Logo == null)
-                return NotFound();
 
-            // إرجاع الشعار كصورة مباشرة
-            return File(org.Logo, "image/png"); // أو image/jpeg حسب نوع الصورة
-        }
-
-        // PUT: api/OrganizationInfo
         [HttpPut]
-        public async Task<IActionResult> UpdateOrganizationInfo([FromBody] OrganizationInfo model)
+        public async Task<IActionResult> UpdateOrganizationInfo([FromForm] UpdateOrgRequest request)
         {
             var org = await _db.OrganizationInfo.FirstOrDefaultAsync();
             if (org == null)
                 return NotFound();
 
-            org.Name = model.Name;
-            org.Phone = model.Phone;
-            org.Email = model.Email;
-            org.Address = model.Address;
+            byte[]? logoBytes = null;
 
-            // لا تحدث الشعار هنا، لأنه عادة يتم رفعه من Endpoint مستقل
+            if (request.Logo != null && request.Logo.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    await request.Logo.CopyToAsync(ms);
+                    logoBytes = ms.ToArray();
+                }
+            }
+
+            org.Update(request, logoBytes);
 
             await _db.SaveChangesAsync();
             return NoContent();
         }
 
-        // POST: api/OrganizationInfo/logo
-        [HttpPost("logo")]
-        public async Task<IActionResult> UploadLogo([FromForm] IFormFile file)
-        {
-            var org = await _db.OrganizationInfo.FirstOrDefaultAsync();
-            if (org == null)
-                return NotFound();
 
-            if (file == null || file.Length == 0)
-                return BadRequest("لا يوجد ملف شعار مرفوع");
-
-            using (var ms = new MemoryStream())
-            {
-                await file.CopyToAsync(ms);
-                org.Logo = ms.ToArray();
-            }
-
-            await _db.SaveChangesAsync();
-            return Ok();
-        }
     }
 }
