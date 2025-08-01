@@ -58,10 +58,6 @@ namespace LandRegistrySystem_Infrastructure.Context
         .HasIndex(c => c.ProjectNumber)
         .IsUnique();
 
-            modelBuilder.Entity<Farm>()
-        .HasIndex(c => c.FarmNumber)
-        .IsUnique();
-
         }
 
         public static async Task SeedRoles(AppDbContext context)
