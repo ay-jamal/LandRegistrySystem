@@ -117,7 +117,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2,3")]
-
         [HttpGet("generate/{farmId}/qr")]
         public async Task<IActionResult> GetFarmQrCode(int farmId)
         {
@@ -168,8 +167,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2")]
-
-
         [HttpPost]
         public async Task<ActionResult> CreateFarm([FromBody] CreateFarmRequest request)
         {
@@ -181,18 +178,18 @@ namespace LandRegistrySystem_API.Controllers
             }
 
             // 2. تحقق هل رقم المزرعة مكرر
-            var existingFarm = await _farmRepository.GetEntity(f => f.FarmNumber == request.FarmNumber);
+            var existingFarm = await _farmRepository.GetEntity(
+            f => f.FarmNumber == request.FarmNumber && f.ProjectId == request.ProjectId);
+
             if (existingFarm != null)
             {
-                return BadRequest(new { Message = "رقم المزرعة موجود مسبقاً" });
+                return BadRequest(new { Message = "رقم المزرعة موجود مسبقاً في هذا المشروع." });
             }
 
             // تحقق من وجود المالك
             var owner = await _ownerRepository.GetEntity(o => o.Id == request.OwnerId);
             if (owner == null)
                 return BadRequest(new { Message = "المالك غير موجود." });
-
-
 
             // 3. إنشاء المزرعة
             var farm = new Farm

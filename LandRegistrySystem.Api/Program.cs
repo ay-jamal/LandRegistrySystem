@@ -31,6 +31,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSqlConnection"))
 );
 
+
+
 var key = builder.Configuration.GetValue<string>("Apisettings:secret");
 
 builder.Services.AddAuthentication(x =>
@@ -101,6 +103,11 @@ if (!Directory.Exists(rootPath))
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); 
+}
 
 using (var scope = app.Services.CreateScope())
 {
