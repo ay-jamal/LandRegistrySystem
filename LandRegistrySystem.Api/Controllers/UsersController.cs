@@ -50,7 +50,7 @@ namespace LandRegistrySystem_API.Controllers
             }
 
             user.Update(updateUserRequest);
-            await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChanges();
             return Ok();
         }
 

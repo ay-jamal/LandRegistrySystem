@@ -51,12 +51,12 @@ namespace LandRegistrySystem_Infrastructure.Context
             modelBuilder.Entity<Role>().ToTable("Roles"); // Explicitly set the table name
 
             modelBuilder.Entity<City>()
-        .HasIndex(c => c.CityNumber)
-        .IsUnique();
+            .HasIndex(c => c.CityNumber)
+             .IsUnique();
 
             modelBuilder.Entity<Project>()
-        .HasIndex(c => c.ProjectNumber)
-        .IsUnique();
+            .HasIndex(c => c.ProjectNumber)
+             .IsUnique();
 
         }
 

@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 namespace LandRegistrySystem_API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Roles = "1")]
     [ApiController]
     public class OrganizationInfoController : ControllerBase
     {
@@ -23,6 +22,7 @@ namespace LandRegistrySystem_API.Controllers
 
         // GET: api/OrganizationInfo
         [HttpGet]
+        [Authorize(Roles = "1,2,3")]
         public async Task<ActionResult<OrganizationInfoDto>> GetOrganizationInfo()
         {
             var org = await _db.OrganizationInfo.FirstOrDefaultAsync();
@@ -44,6 +44,7 @@ namespace LandRegistrySystem_API.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> UpdateOrganizationInfo([FromForm] UpdateOrgRequest request)
         {
             var org = await _db.OrganizationInfo.FirstOrDefaultAsync();

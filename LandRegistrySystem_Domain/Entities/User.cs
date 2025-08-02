@@ -30,6 +30,10 @@ namespace LandRegistrySystem_Domain.Entities
         public void Update(UpdateUserRequest updateUserRequest)
         {
             // Update properties if they are provided in the request
+
+            if (!string.IsNullOrEmpty(updateUserRequest.Username))
+                FullName = updateUserRequest.Username;
+
             if (!string.IsNullOrEmpty(updateUserRequest.FullName))
                 FullName = updateUserRequest.FullName;
 

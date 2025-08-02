@@ -12,6 +12,5 @@ namespace LandRegistrySystem_Domain.IRepositories
     public interface IUserRepository : IGenericRepository<User>
     {
         Task<List<UserDto>> GetAllUsersAsync(string SearchValue);
-        Task UpdateUserAsync(User user);
     }
 }
