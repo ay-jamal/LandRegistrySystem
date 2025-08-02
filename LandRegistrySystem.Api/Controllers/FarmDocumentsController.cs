@@ -11,7 +11,6 @@ namespace LandRegistrySystem_API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "1,2")]
 
     public class FarmDocumentsController : ControllerBase
     {
@@ -25,7 +24,9 @@ namespace LandRegistrySystem_API.Controllers
         }
 
 
+
         [HttpPost("upload")]
+        [Authorize(Roles = "1,2")]
         public async Task<IActionResult> UploadFiles([FromForm] int farmId, [FromForm] List<IFormFile> files)
         {
             var farm = await _dbContext.Farms
@@ -69,6 +70,8 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [HttpGet("{farmId}")]
+        [Authorize(Roles = "1,2,3")]
+
         public async Task<IActionResult> GetFarmDocuments(int farmId)
         {
             var documents = await _dbContext.FarmDocuments
@@ -80,6 +83,8 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [HttpGet("download/{documentId}")]
+        [Authorize(Roles = "1,2,3")]
+
         public async Task<IActionResult> DownloadFile(int documentId)
         {
             var document = await _dbContext.FarmDocuments.FindAsync(documentId);
@@ -90,7 +95,9 @@ namespace LandRegistrySystem_API.Controllers
             return File(fileBytes, "application/octet-stream", document.FileName);
         }
 
+
         [HttpGet("preview/{documentId}")]
+        [Authorize(Roles = "1,2,3")]
         public async Task<IActionResult> PreviewFile(int documentId)
         {
             var document = await _dbContext.FarmDocuments.FindAsync(documentId);
@@ -121,6 +128,8 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [HttpDelete("{documentId}")]
+        [Authorize(Roles = "1,2")]
+
         public async Task<IActionResult> DeleteFile(int documentId)
         {
             var document = await _dbContext.FarmDocuments.FindAsync(documentId);
@@ -152,6 +161,8 @@ namespace LandRegistrySystem_API.Controllers
 
 
         [HttpPut("replace/{documentId}")]
+        [Authorize(Roles = "1,2")]
+
         public async Task<IActionResult> ReplaceFile(int documentId, IFormFile newFile)
         {
             var document = await _dbContext.FarmDocuments
@@ -188,6 +199,8 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [HttpGet("tree")]
+        [Authorize(Roles = "1,2,3")]
+
         public async Task<IActionResult> GetDocumentTree()
         {
             var cities = await _dbContext.Citites

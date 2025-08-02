@@ -13,7 +13,6 @@ namespace LandRegistrySystem_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "1")]
 
     public class ProjectsController : ControllerBase
     {
