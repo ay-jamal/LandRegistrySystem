@@ -14,6 +14,7 @@ namespace LandRegistrySystem_Domain.Dtos
         public string CityName { get; set; }
         public int CityId { get; set; }
         public string ProjectName { get; set; }
+        public bool IsVerified { get; set; } = false;
 
         public string ProjectNumber { get; set; }
         public int ProjectId { get; set; }
