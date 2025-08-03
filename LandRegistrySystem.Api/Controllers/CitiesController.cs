@@ -93,9 +93,12 @@ namespace LandRegistrySystem_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCity(int id)
         {
-            var city = await _cityRepository.GetEntity(c => c.Id == id);
+            var city = await _cityRepository.GetEntity(c => c.Id == id, includeProperties: "Projects");
             if (city == null)
-                return NotFound();
+                return NotFound(new { message = "لم يتم العثور على المدينة." });
+
+            if (city.Projects != null && city.Projects.Any())
+                return BadRequest(new { message = "لا يمكن حذف المدينة لأنها تحتوي على مشاريع." });
 
             await _cityRepository.RemoveEntity(city);
             return Ok();
@@ -106,15 +109,24 @@ namespace LandRegistrySystem_API.Controllers
         public async Task<IActionResult> DeleteCities([FromBody] List<int> ids)
         {
             if (ids == null || !ids.Any())
-                return BadRequest();
+                return BadRequest(new { message = "يجب إرسال معرفات المدن." });
 
-            var cities = await _cityRepository.GetEntities(c => ids.Contains(c.Id));
+            var cities = await _cityRepository.GetEntities(c => ids.Contains(c.Id), includeProperties: "Projects");
             if (cities == null || cities.Count == 0)
-                return NotFound("");
+                return NotFound(new { message = "لم يتم العثور على أي مدينة." });
+
+            var citiesWithProjects = cities.Where(c => c.Projects != null && c.Projects.Any()).ToList();
+            if (citiesWithProjects.Any())
+            {
+                var names = string.Join(", ", citiesWithProjects.Select(c => c.Name));
+                return BadRequest(new { message = $"لا يمكن حذف المدن التالية لأنها تحتوي على مشاريع: {names}" });
+            }
 
             await _cityRepository.RemoveEntities(cities);
             return Ok();
         }
+
+
 
     }
 }

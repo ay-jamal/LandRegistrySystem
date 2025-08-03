@@ -57,9 +57,10 @@ namespace LandRegistrySystem_API.Controllers
         public async Task<ActionResult<PaginatedResult<FarmDto>>> GetFarms(
           [FromQuery] int? cityId,
           [FromQuery] int? projectId,
+          [FromQuery] bool? isVerified,
           [FromQuery] PaginationRequest paginationRequest)
         {
-            var result = await _farmRepository.GetFarms(cityId, projectId, paginationRequest);
+            var result = await _farmRepository.GetFarms(cityId, projectId, isVerified, paginationRequest);
             return Ok(result);
         }
         [Authorize(Roles = "1,2,3")]
@@ -198,6 +199,7 @@ namespace LandRegistrySystem_API.Controllers
                 ProjectId = request.ProjectId,
                 OwnerId = request.OwnerId,
                 FarmNumber = request.FarmNumber,
+                IsVerified = true,
                 Boundaries = new FarmBoundaries
                 {
                     North = request.North,
@@ -287,6 +289,26 @@ namespace LandRegistrySystem_API.Controllers
 
             return NoContent();
         }
+
+        [Authorize(Roles = "1,2")]
+        [HttpPut("{id}/verify")]
+        public async Task<IActionResult> VerifyFarm(int id)
+        {
+            var farm = await _dbContext.Farms.FindAsync(id);
+            if (farm == null)
+            {
+                return NotFound(new { Message = "المزرعة غير موجود." });
+
+            }
+
+            farm.IsVerified = true;
+            farm.UpdatedAt = DateTime.Now;
+            farm.UpdatedByUserName = User.Identity.Name;
+
+            await _farmRepository.SaveChanges();
+            return Ok(new { message = "تم توثيق بيانات المزرعة بنجاح" });
+        }
+
 
         [Authorize(Roles = "1,2")]
 
@@ -381,7 +403,7 @@ namespace LandRegistrySystem_API.Controllers
             _dbContext.Farms.RemoveRange(farms);
             await _dbContext.SaveChangesAsync();
 
-            return Ok("تم حذف المزارع والملفات المرتبطة بها بنجاح.");
+            return Ok();
         }
 
 

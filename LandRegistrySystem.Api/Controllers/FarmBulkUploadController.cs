@@ -188,7 +188,9 @@ namespace LandRegistrySystem_API.Controllers
                             {
                                 FarmNumber = farmNumberThis,
                                 ProjectId = project.Id,
-                                OwnerId = _defaultUserId // تأكد أن هذا المستخدم موجود في جدول Owners
+                                OwnerId = _defaultUserId, 
+                                IsVerified = false        // 👈 تم إضافتها هنا، كل مزرعة مضافة من المسارات غير موثقة
+
                             };
                             _dbContext.Farms.Add(farm);
                             await _dbContext.SaveChangesAsync();

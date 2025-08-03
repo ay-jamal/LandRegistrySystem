@@ -57,11 +57,14 @@ namespace LandRegistrySystem_API.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateProject([FromBody] ProjectCreateRequest request)
         {
-            var EsistingProject = await _projectRepository.GetEntity(p => p.ProjectNumber == request.ProjectNumber);
-            if (EsistingProject != null)
+            var existingProject = await _projectRepository.GetEntity(
+              p => p.ProjectNumber == request.ProjectNumber && p.CityId == request.CityId);
+
+            if (existingProject != null)
             {
-                return BadRequest(new { Message = "رقم المشروع موجود مسبقا" });
+                return BadRequest(new { Message = "رقم المشروع موجود مسبقاً في نفس المدينة." });
             }
+
             var project = new Project
             {
                 ProjectNumber = request.ProjectNumber,
@@ -108,13 +111,19 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2")]
-        // DELETE: api/Projects/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProject(int id)
         {
-            var project = await _projectRepository.GetEntity(p => p.Id == id);
+            var project = await _projectRepository.GetEntity(
+                p => p.Id == id,
+                includeProperties: "Farms"
+            );
+
             if (project == null)
-                return NotFound();
+                return NotFound(new { message = "لم يتم العثور على المشروع." });
+
+            if (project.Farms != null && project.Farms.Any())
+                return BadRequest(new { message = "لا يمكن حذف المشروع لأنه يحتوي على مزارع." });
 
             await _projectRepository.RemoveEntity(project);
             await _projectRepository.SaveChanges();
@@ -122,20 +131,35 @@ namespace LandRegistrySystem_API.Controllers
             return Ok();
         }
 
+
         [Authorize(Roles = "1,2")]
         [HttpDelete("DeleteMultiple")]
         public async Task<IActionResult> DeleteProjects([FromBody] List<int> ids)
         {
             if (ids == null || !ids.Any())
-                return BadRequest();
+                return BadRequest(new { message = "يجب إرسال معرفات المشاريع." });
 
-            var projects = await _projectRepository.GetEntities(p => ids.Contains(p.Id));
+            var projects = await _projectRepository.GetEntities(
+                p => ids.Contains(p.Id),
+                includeProperties: "Farms"
+            );
+
             if (projects == null || projects.Count == 0)
-                return NotFound();
+                return NotFound(new { message = "لم يتم العثور على أي مشروع." });
+
+            var projectsWithFarms = projects.Where(p => p.Farms != null && p.Farms.Any()).ToList();
+            if (projectsWithFarms.Any())
+            {
+                var names = string.Join(", ", projectsWithFarms.Select(p => p.Name));
+                return BadRequest(new { message = $"لا يمكن حذف المشاريع التالية لأنها تحتوي على مزارع: {names}" });
+            }
 
             await _projectRepository.RemoveEntities(projects);
+            await _projectRepository.SaveChanges();
+
             return Ok();
         }
+
 
     }
 }

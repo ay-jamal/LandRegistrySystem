@@ -1709,7 +1709,9 @@
           "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "QuestPDF": "2025.5.1",
-          "ZXing.Net": "0.16.10"
+          "SkiaSharp": "3.119.0",
+          "ZXing.Net": "0.16.10",
+          "ZXing.Net.Bindings.SkiaSharp": "0.16.21"
         },
         "compile": {
           "bin/placeholder/LandRegistrySystem_Domain.dll": {}

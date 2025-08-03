@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+vo/guOAprfIBkWQuCVBP0HtxurKjWEbPkKETdLm/lW5CtSp3LCKz7Xmi+mxl2HCsChUCyElmnFu0uIoO0UV3Q==",
+  "dgSpecHash": "EWLBHTr9A+IIAfU00YYenq4dBjcdWRkFh4CsBaKLH4oiZR+m0vibd7GVB8bn3nT3CYNRpTIpDg3wuj3UsjalNw==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Documents\\projects\\LandRegistrySystem\\LandRegistrySystem_Domain\\LandRegistrySystem_Domain.csproj",
   "expectedPackageFiles": [
@@ -55,10 +55,10 @@
     "C:\\Users\\hp\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\sixlabors.imagesharp\\2.1.3\\sixlabors.imagesharp.2.1.3.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\skiasharp\\2.88.8\\skiasharp.2.88.8.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\skiasharp\\3.119.0\\skiasharp.3.119.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.8\\skiasharp.nativeassets.linux.nodependencies.2.88.8.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.8\\skiasharp.nativeassets.macos.2.88.8.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.8\\skiasharp.nativeassets.win32.2.88.8.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.119.0\\skiasharp.nativeassets.macos.3.119.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.119.0\\skiasharp.nativeassets.win32.3.119.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\supersimpletcp\\2.4.0\\supersimpletcp.2.4.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
@@ -87,7 +87,8 @@
     "C:\\Users\\hp\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512"
+    "C:\\Users\\hp\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\zxing.net.bindings.skiasharp\\0.16.21\\zxing.net.bindings.skiasharp.0.16.21.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,9 +9,14 @@ namespace LandRegistrySystem_Infrastructure.IRepositories
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<List<T>> GetEntities(Expression<Func<T, bool>> filter = null, bool trakecd = true);
-        Task<T> GetEntity(Expression<Func<T, bool>> filter = null, bool tracked = true);
-        Task CreateEntity(T entity);
+        Task<List<T>> GetEntities(
+            Expression<Func<T, bool>> filter = null,
+            bool tracked = true,
+            string includeProperties = "");
+        Task<T> GetEntity(
+            Expression<Func<T, bool>> filter = null,
+            bool tracked = true,
+            string includeProperties = ""); Task CreateEntity(T entity);
         Task RemoveEntity(T entity);
 
         Task RemoveEntities(IEnumerable<T> entities);

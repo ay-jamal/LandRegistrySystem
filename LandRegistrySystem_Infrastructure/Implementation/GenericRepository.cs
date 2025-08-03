@@ -26,28 +26,48 @@ namespace LandRegistrySystem_Infrastructure.Implementation
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<T>> GetEntities(Expression<Func<T, bool>> filter = null, bool trakecd = true)
+        public async Task<List<T>> GetEntities(
+      Expression<Func<T, bool>> filter = null,
+      bool tracked = true,
+      string includeProperties = "")
         {
             IQueryable<T> query = dbSet;
 
+            if (!tracked)
+                query = query.AsNoTracking();
+
             if (filter != null)
-            {
                 query = query.Where(filter);
+
+            // ✅ إضافة Include للعلاقات إذا تم تمريرها
+            foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty.Trim());
             }
+
             return await query.ToListAsync();
         }
 
-        public async Task<T> GetEntity(Expression<Func<T, bool>> filter = null, bool tracked = true)
+
+        public async Task<T> GetEntity(
+          Expression<Func<T, bool>> filter = null,
+          bool tracked = true,
+          string includeProperties = "")
         {
             IQueryable<T> query = dbSet;
+
             if (!tracked)
-            {
                 query = query.AsNoTracking();
-            }
+
             if (filter != null)
-            {
                 query = query.Where(filter);
+
+            // ✅ إضافة الـ Include إذا تم تمريره
+            foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty.Trim());
             }
+
             return await query.FirstOrDefaultAsync();
         }
 

@@ -35,6 +35,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var key = builder.Configuration.GetValue<string>("Apisettings:secret");
 
+
+
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -102,6 +104,12 @@ if (!Directory.Exists(rootPath))
 }
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();   // <-- هذا السطر يطبق التغييرات تلقائيًا
+}
 
 using (var scope = app.Services.CreateScope())
 {

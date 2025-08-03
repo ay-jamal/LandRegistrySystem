@@ -54,9 +54,6 @@ namespace LandRegistrySystem_Infrastructure.Context
             .HasIndex(c => c.CityNumber)
              .IsUnique();
 
-            modelBuilder.Entity<Project>()
-            .HasIndex(c => c.ProjectNumber)
-             .IsUnique();
 
         }
 

@@ -17,7 +17,8 @@ namespace LandRegistrySystem_Domain.Entities
         public FarmBoundaries Boundaries { get; set; } 
 
         public int ProjectId { get; set; }
-        public Project Project { get; set; } 
+        public Project Project { get; set; }
+        public bool IsVerified { get; set; } = false;
 
         public int OwnerId { get; set; }
         public Owner Owner { get; set; }

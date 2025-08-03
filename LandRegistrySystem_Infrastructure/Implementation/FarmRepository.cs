@@ -22,7 +22,8 @@ namespace LandRegistrySystem_Infrastructure.Implementation
             _db = db;
         }
 
-        public async Task<PaginatedResult<FarmDto>> GetFarms(int? cityId, int? projectId, PaginationRequest paginationRequest)
+        public async Task<PaginatedResult<FarmDto>> GetFarms(int? cityId, int? projectId, bool? isVerified,
+         PaginationRequest paginationRequest)
         {
             var query = _db.Farms
                 .Include(f => f.Owner)
@@ -43,12 +44,18 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 query = query.Where(f => f.ProjectId == projectId.Value);
             }
 
+            if (isVerified.HasValue)
+            {
+                query = query.Where(f => f.IsVerified == isVerified.Value);
+            }
+
             // ✅ البحث النصي إن وجد
             if (!string.IsNullOrWhiteSpace(paginationRequest.SearchValue))
             {
                 var searchValue = paginationRequest.SearchValue.ToLower();
+
                 query = query.Where(f =>
-                    f.FarmNumber.ToString().Contains(searchValue) ||
+                    f.FarmNumber.ToLower().Contains(searchValue) ||
                     f.Owner.FullName.ToLower().Contains(searchValue));
             }
 

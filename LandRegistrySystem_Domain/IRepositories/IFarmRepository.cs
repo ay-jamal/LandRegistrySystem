@@ -12,6 +12,6 @@ namespace LandRegistrySystem_Domain.IRepositories
 {
     public interface IFarmRepository:IGenericRepository<Farm>
     {
-        Task<PaginatedResult<FarmDto>> GetFarms(int? CityId, int? ProjectId,PaginationRequest paginationRequest);
+        Task<PaginatedResult<FarmDto>> GetFarms(int? CityId, int? ProjectId, bool? isVerified, PaginationRequest paginationRequest);
     }
 }

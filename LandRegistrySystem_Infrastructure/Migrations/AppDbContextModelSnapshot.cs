@@ -74,6 +74,9 @@ namespace LandRegistrySystem_Infrastructure.Migrations
                     b.Property<string>("FarmNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
                     b.Property<int>("OwnerId")
                         .HasColumnType("int");
 
@@ -248,7 +251,7 @@ namespace LandRegistrySystem_Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectNumber")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -259,10 +262,6 @@ namespace LandRegistrySystem_Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
-
-                    b.HasIndex("ProjectNumber")
-                        .IsUnique()
-                        .HasFilter("[ProjectNumber] IS NOT NULL");
 
                     b.ToTable("Projects");
                 });
