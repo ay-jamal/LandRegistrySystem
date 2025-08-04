@@ -71,6 +71,7 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 CityId = f.Project.City.Id,
                 ProjectName = f.Project.Name,
                 CityName = f.Project.City.Name,
+                IsVerified = f.IsVerified,
                 UpdatedAt = f.UpdatedAt,
                 UpdatedByUser = f.UpdatedByUserName,
                 Boundaries = new BoundaryDto

@@ -36,9 +36,7 @@ namespace LandRegistrySystem_API.Controllers
             IFarmRepository farmRepository,
             IConfiguration configuration,
             IProjectRepository projectRepository,
-            IFileManagerRepository fileManager
-,
-
+            IFileManagerRepository fileManager,
             IOwnerRepository ownerRepository
             )
         {
@@ -51,8 +49,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2,3")]
-
-        // GET: api/Farms?page=1&pageSize=10&searchValue=abc
         [HttpGet]
         public async Task<ActionResult<PaginatedResult<FarmDto>>> GetFarms(
           [FromQuery] int? cityId,
@@ -63,8 +59,8 @@ namespace LandRegistrySystem_API.Controllers
             var result = await _farmRepository.GetFarms(cityId, projectId, isVerified, paginationRequest);
             return Ok(result);
         }
-        [Authorize(Roles = "1,2,3")]
 
+        [Authorize(Roles = "1,2,3")]
         // GET: api/Farms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<FarmDto>> GetFarm(int id)
@@ -77,8 +73,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2,3")]
-
-
         [HttpGet("generate/{farmId}")]
         public async Task<IActionResult> GenerateFarmBarcode(int farmId)
         {
@@ -223,7 +217,7 @@ namespace LandRegistrySystem_API.Controllers
             // 5. تحديد مسار مجلد المشروع داخل مجلد المدينة
             string folderPath = Path.Combine(
                 _rootPath,
-                projectWithCity.City.CityNumber,                              // "01"
+                projectWithCity.City.CityNumber,
                 $"{projectWithCity.City.CityNumber}{projectWithCity.ProjectNumber}",
                 $"{projectWithCity.City.CityNumber}{projectWithCity.ProjectNumber}{request.FarmNumber}"
             );
@@ -257,7 +251,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2")]
-
         [HttpPut]
         public async Task<IActionResult> UpdateFarm([FromBody]  UpdateFarmRequest request)
         {
@@ -311,7 +304,6 @@ namespace LandRegistrySystem_API.Controllers
 
 
         [Authorize(Roles = "1,2")]
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFarm(int id)
         {
@@ -357,7 +349,6 @@ namespace LandRegistrySystem_API.Controllers
         }
 
         [Authorize(Roles = "1,2")]
-
         [HttpDelete]
         public async Task<IActionResult> DeleteFarms([FromBody] List<int> ids)
         {
@@ -404,10 +395,7 @@ namespace LandRegistrySystem_API.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok();
-        }
-
-
-      
+        }     
 
     }
 }
