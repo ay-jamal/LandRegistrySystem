@@ -35,7 +35,7 @@ namespace LandRegistrySystem_Infrastructure.Implementation
                 var search = paginationRequest.SearchValue.ToLower();
                 query = query.Where(p =>
                     p.Name.ToLower().Contains(search) ||
-                    p.Id.ToString().Contains(search));
+                    p.ProjectNumber.ToString().Contains(search));
             }
 
             if (CityId.HasValue)

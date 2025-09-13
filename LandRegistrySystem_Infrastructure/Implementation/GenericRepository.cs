@@ -76,6 +76,7 @@ namespace LandRegistrySystem_Infrastructure.Implementation
             dbSet.Remove(entity);
             await _db.SaveChangesAsync();
         }
+
         public async Task RemoveEntities(IEnumerable<T> entities)
         {
             dbSet.RemoveRange(entities);
